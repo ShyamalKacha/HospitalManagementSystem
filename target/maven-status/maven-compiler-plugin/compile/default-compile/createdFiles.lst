@@ -30,3 +30,4 @@ com\hospital\controller\PatientController.class
 com\hospital\service\AppointmentService.class
 com\hospital\service\DoctorService.class
 com\hospital\service\impl\UserServiceImpl.class
+com\hospital\controller\HomeController.class

@@ -10,6 +10,7 @@
 .springBeans
 .sts4-cache
 .opencode
+.playwright-mcp
 
 # Created by https://www.gitignore.io/api/git,java,maven,eclipse,windows
 

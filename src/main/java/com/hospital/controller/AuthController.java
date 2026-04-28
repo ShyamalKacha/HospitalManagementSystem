@@ -32,6 +32,11 @@ public class AuthController {
         return "login";
     }
 
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/auth/login";
+    }
+
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password,
                       HttpSession session, Model model) {

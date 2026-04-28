@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Dashboard - Hospital Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Fira Sans', sans-serif; }
+        .font-mono { font-family: 'Fira Code', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-cyan-700 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <span class="text-xl font-bold font-mono">HMS</span>
+                    <span class="text-cyan-200">|</span>
+                    <span class="text-sm">Patient Dashboard</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-cyan-200" th:text="${patient?.name}">Patient Name</span>
+                    <a th:href="@{/auth/logout}" class="px-3 py-1 bg-cyan-800 hover:bg-cyan-900 rounded text-sm transition cursor-pointer">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Welcome, <span th:text="${patient?.name}">Patient</span>!</h1>
+            <p class="text-gray-600">Manage your appointments, prescriptions, and medical records.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <a th:href="@{/patient/profile}" class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer border-l-4 border-cyan-500">
+                <h3 class="text-lg font-semibold text-gray-800">Profile</h3>
+                <p class="text-sm text-gray-500 mt-1">View & edit your details</p>
+            </a>
+            <a th:href="@{/patient/book}" class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer border-l-4 border-green-500">
+                <h3 class="text-lg font-semibold text-gray-800">Book Appointment</h3>
+                <p class="text-sm text-gray-500 mt-1">Schedule a new visit</p>
+            </a>
+            <a th:href="@{/patient/prescriptions}" class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer border-l-4 border-purple-500">
+                <h3 class="text-lg font-semibold text-gray-800">Prescriptions</h3>
+                <p class="text-sm text-gray-500 mt-1">View your medicines</p>
+            </a>
+            <a th:href="@{/patient/records}" class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer border-l-4 border-orange-500">
+                <h3 class="text-lg font-semibold text-gray-800">Medical Records</h3>
+                <p class="text-sm text-gray-500 mt-1">View your history</p>
+            </a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Your Appointments</h2>
+            <div th:if="${#lists.isEmpty(appointments)}" class="text-gray-500 text-center py-8">
+                No appointments yet. <a th:href="@{/patient/book}" class="text-cyan-600 hover:underline">Book one now</a>
+            </div>
+            <table th:if="${!#lists.isEmpty(appointments)}" class="w-full">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Doctor</th>
+                        <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Date</th>
+                        <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Time</th>
+                        <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Status</th>
+                        <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="appt : ${appointments}" class="border-t">
+                        <td class="px-4 py-3">Dr. <span th:text="${appt.doctor.name}">Doctor</span></td>
+                        <td class="px-4 py-3" th:text="${appt.date}">Date</td>
+                        <td class="px-4 py-3" th:text="${appt.time}">Time</td>
+                        <td class="px-4 py-3">
+                            <span th:class="${appt.status == 'CONFIRMED' ? 'px-2 py-1 bg-green-100 text-green-700 rounded text-xs' : 
+                                (appt.status == 'PENDING' ? 'px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs' :
+                                (appt.status == 'CANCELLED' ? 'px-2 py-1 bg-red-100 text-red-700 rounded text-xs' : 'px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs'))}"
+                                th:text="${appt.status}">Status</span>
+                        </td>
+                        <td class="px-4 py-3">
+                            <form th:if="${appt.status == 'PENDING'}" th:action="@{/patient/appointments/cancel/{id}(id=${appt.id})}" method="post">
+                                <button type="submit" class="text-red-600 hover:text-red-800 text-sm cursor-pointer">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,14 +1,32 @@
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\HospitalApplication.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\model\Appointment.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\model\Patient.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\repository\PatientRepository.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\model\Doctor.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\repository\DoctorRepository.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\service\impl\AppointmentServiceImpl.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\service\impl\PatientServiceImpl.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\repository\AppointmentRepository.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\service\PatientService.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\service\DoctorService.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\service\impl\DoctorServiceImpl.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\controller\HospitalController.java
-D:\Hospital Management System\Manual\PR9\src\main\java\com\hospital\service\AppointmentService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\controller\AdminController.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\model\Appointment.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\impl\PatientServiceImpl.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\impl\MedicalRecordServiceImpl.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\model\Doctor.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\repository\PatientRepository.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\PdfReportService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\repository\UserRepository.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\PrescriptionService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\AppointmentService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\config\DatabaseInitializer.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\model\MedicalRecord.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\DoctorService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\impl\PrescriptionServiceImpl.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\impl\DoctorServiceImpl.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\PatientService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\repository\DoctorRepository.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\HospitalApplication.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\repository\MedicalRecordRepository.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\repository\AppointmentRepository.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\controller\PatientController.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\UserService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\model\Prescription.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\config\DataSeeder.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\repository\PrescriptionRepository.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\controller\DoctorController.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\model\User.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\model\Patient.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\MedicalRecordService.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\controller\AuthController.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\model\Role.java
+C:\Users\Admin\Desktop\BE\SEM 6\AJP\Project\HospitalManagementSystem\src\main\java\com\hospital\service\impl\UserServiceImpl.java

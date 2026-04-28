@@ -1,10 +1,11 @@
 package com.hospital.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "appointment")
-public class Appointment {
+@Table(name = "medical_record")
+public class MedicalRecord {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +19,14 @@ public class Appointment {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
     
+    private String diagnosis;
+    @Column(length = 1000)
+    private String notes;
+    
+    @Column(name = "record_date")
     private String date;
-    private String time;
-    private String status;
-    private String reason;
 
-    public Appointment() {}
+    public MedicalRecord() {}
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
@@ -34,15 +37,12 @@ public class Appointment {
     public Doctor getDoctor() { return doctor; }
     public void setDoctor(Doctor doctor) { this.doctor = doctor; }
 
+    public String getDiagnosis() { return diagnosis; }
+    public void setDiagnosis(String diagnosis) { this.diagnosis = diagnosis; }
+
+    public String getNotes() { return notes; }
+    public void setNotes(String notes) { this.notes = notes; }
+
     public String getDate() { return date; }
     public void setDate(String date) { this.date = date; }
-
-    public String getTime() { return time; }
-    public void setTime(String time) { this.time = time; }
-
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
-
-    public String getReason() { return reason; }
-    public void setReason(String reason) { this.reason = reason; }
 }

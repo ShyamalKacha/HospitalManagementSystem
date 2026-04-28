@@ -12,6 +12,15 @@ public class Doctor {
     
     private String name;
     private String specialty;
+    private String phone;
+    private String email;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+    
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private java.util.List<Appointment> appointments;
 
     public Doctor() {}
 
@@ -23,4 +32,13 @@ public class Doctor {
 
     public String getSpecialty() { return specialty; }
     public void setSpecialty(String specialty) { this.specialty = specialty; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }

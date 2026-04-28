@@ -12,6 +12,17 @@ public class Patient {
     
     private String name;
     private int age;
+    private String gender;
+    private String phone;
+    private String email;
+    private String address;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+    
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private java.util.List<Appointment> appointments;
 
     public Patient() {}
 
@@ -23,4 +34,19 @@ public class Patient {
 
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
+
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }

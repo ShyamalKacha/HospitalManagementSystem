@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Profile - Hospital Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Fira Sans', sans-serif; }</style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-cyan-700 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a th:href="@{/patient/dashboard}" class="text-xl font-bold font-mono">HMS</a>
+                    <span class="text-cyan-200">|</span>
+                    <span class="text-sm">Profile</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a th:href="@{/patient/dashboard}" class="text-sm hover:text-cyan-200 transition">Dashboard</a>
+                    <a th:href="@{/auth/logout}" class="px-3 py-1 bg-cyan-800 hover:bg-cyan-900 rounded text-sm transition cursor-pointer">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-3xl mx-auto px-4 py-8">
+        <div th:if="${param.updated}" class="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+            Profile updated successfully!
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6">Edit Your Profile</h2>
+            
+            <form th:action="@{/patient/profile/update}" method="post" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" name="name" th:value="${patient?.name}" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+                        <input type="number" name="age" th:value="${patient?.age}" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                        <select name="gender" th:value="${patient?.gender}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                            <option value="Male" th:selected="${patient?.gender == 'Male'}">Male</option>
+                            <option value="Female" th:selected="${patient?.gender == 'Female'}">Female</option>
+                            <option value="Other" th:selected="${patient?.gender == 'Other'}">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        <input type="text" name="phone" th:value="${patient?.phone}"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" name="email" th:value="${patient?.email}"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                    <textarea name="address" rows="2" th:text="${patient?.address}"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none transition"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition cursor-pointer">
+                    Save Changes
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

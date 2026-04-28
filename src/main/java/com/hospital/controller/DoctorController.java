@@ -237,4 +237,34 @@ public class DoctorController {
             .contentType(MediaType.APPLICATION_PDF)
             .body(pdf);
     }
+
+    @GetMapping("/records")
+    public String myRecords(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user == null || user.getRole() != Role.DOCTOR) {
+            return "redirect:/auth/login";
+        }
+        
+        Doctor doctor = doctorRepository.findByUser(user).orElse(null);
+        List<MedicalRecord> records = medicalRecordRepository.findByDoctor(doctor);
+        model.addAttribute("doctor", doctor);
+        model.addAttribute("records", records);
+        
+        return "doctor/records";
+    }
+
+    @GetMapping("/prescriptions")
+    public String myPrescriptions(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user == null || user.getRole() != Role.DOCTOR) {
+            return "redirect:/auth/login";
+        }
+        
+        Doctor doctor = doctorRepository.findByUser(user).orElse(null);
+        List<Prescription> prescriptions = prescriptionRepository.findByDoctor(doctor);
+        model.addAttribute("doctor", doctor);
+        model.addAttribute("prescriptions", prescriptions);
+        
+        return "doctor/prescriptions";
+    }
 }
